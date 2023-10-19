@@ -9,7 +9,7 @@ const Header=()=>{
       <span className="navbar-toggler-icon" />
     </button>
     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <Link to="/" className="navbar-brand" ><GiShoppingBag/>RFR</Link>
+      <Link to="/" className="navbar-brand" ><GiShoppingBag/>  RFR</Link>
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
         <li className="nav-item">
           <NavLink to="/"className="nav-link ">Home</NavLink>
