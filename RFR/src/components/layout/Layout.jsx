@@ -1,16 +1,37 @@
 import Footer from "./Footer"
 import Header from "./Header"
-const Layout=({children})=>{
+import {Helmet} from "react-helmet";
+import { ToastContainer } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+const Layout=({children,title,description,keywords,author})=>{
     return(
         <div>
-            <Header/>
-            <main style={{minHeight:"80vh"}}>
+            <Helmet>
+                <meta charSet="utf-8" />
+               <div>
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
+  <meta name="Author" content={author} />
+</div>
 
-           
+                <title>{title}</title>
+                
+            </Helmet>
+            <Header/>
+            <main style={{minHeight:"70vh"}}>
+
+            <ToastContainer />
+
             {children}
             </main>
             <Footer  />
         </div>
     )
+}
+Layout.defaultProps={
+    title:'RFR New solution for e-commerce',
+    description:"this application is build in MERN Stack",
+    keywords:'merm,react,mongodb,html css tailwaind node',
+    author:"Nita and Mamoon"
 }
 export default Layout

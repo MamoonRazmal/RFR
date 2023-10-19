@@ -7,6 +7,29 @@
   padding: 0;
   box-sizing: border-box;
 }
+.pnf{
+  display: flex;
+  min-height: 65vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.pnf-title{
+  font-size: 100px;
+  font-weight: 700;
+}
+.pnf-heading{
+  font-weight: normal;
+}
+.pnf-btn{
+  color: black;
+  border:1px solid black;
+text-decoration:none;
+padding:10px;
+margin-top:10px;
+
+
+}
 /* font-family: 'Playfair Display SC', serif;
 font-family: 'Poppins', sans-serif; */
 .navbar{
@@ -20,4 +43,40 @@ font-family: 'Poppins', sans-serif; */
 }
 .nav-link{
   font-weight: 300 !important;
+}
+.active{
+  border-bottom: 2px solid black;
+}
+.navbar-brand{
+  font-weight:700 ;
+  font-family: 'roboto',sans-serif;
+  letter-spacing: 3;
+}
+.footer{
+  color: white;
+  padding: 25px;
+  background: black;
+  background:-webkit-linear-gradient(to right,#434343,#000000);
+  background: linear-gradient(to right,#434343,#000000);
+  
+}
+.footer a{
+  text-decoration: none;
+  color:white;
+  padding:10px;
+}
+.footer a:hover{
+  color :#ffefba;
+  border-bottom:1px solid #ffefba ;
+}
+
+
+/* register css */
+.register{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 70vh;
+
 }
