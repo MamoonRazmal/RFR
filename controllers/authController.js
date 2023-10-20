@@ -8,13 +8,13 @@ export const registerController = async (req, res) => {
 
         // validation
         if (!name || !email || !password || !phone || !address) {
-            return res.status(400).send({ error: 'All fields are required' });
+            return res.status(400).send({ message: 'All fields are required' });
         }
 
         // existing user check
         const existingUser = await userModel.findOne({ email });
         if (existingUser) {
-            return res.status(200).send({ success: true, message: 'Already registered, please login' });
+            return res.status(200).send({ success: false, message: 'Already registered, please login' });
         }
 
         const hashedPassword = await hashpassword(password);
@@ -80,7 +80,7 @@ catch(error){
     res.status(500).send({
         sucess:false,
         message:'Error in logins',
-        error
+        error:error
     })
 
 }
