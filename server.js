@@ -6,6 +6,8 @@ import cors from 'cors'
 
 import morgan from 'morgan'
 import dbs from "./config/dbs.js"
+import categoryRoutes from "./routes/categoryRoutes.js"
+import productRoutes from "./routes/productRoutes.js"
 dotenv.config()
 dbs()
 const app=express();
@@ -14,6 +16,8 @@ app.use(express.json())
 app.use(morgan('dev'))
 //routes
 app.use('/api/v1/auth',authRoutes)
+app.use('/api/v1/category',categoryRoutes)
+app.use('/api/v1/product',productRoutes)
 
 //rest api
 
