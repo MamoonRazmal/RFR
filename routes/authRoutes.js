@@ -1,24 +1,32 @@
-import express from 'express'
-import {registerController,loginController,testController, forgotPasswordController} from '../controllers/authController.js'
-import { isAdmin, requireSignIn } from '../middlewares/authMiddleware.js'
-const router=express.Router()
+import express from "express";
+import {
+  registerController,
+  loginController,
+  testController,
+  forgotPasswordController,
+  updateProfileController,
+} from "../controllers/authController.js";
+import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
+const router = express.Router();
 //routing
 //register || method post
-router.post('/register',registerController)
+router.post("/register", registerController);
 ///Login
-router.post('/login',loginController)
+router.post("/login", loginController);
 ///forget
-router.post('/forgot-password',forgotPasswordController)
+router.post("/forgot-password", forgotPasswordController);
 //test
-router.get('/test',requireSignIn,isAdmin,testController)
+router.get("/test", requireSignIn, isAdmin, testController);
 
 //be protected allway use secure Lineee user route
-router.get('/user-auth',requireSignIn,(req,res)=>{
-    res.status(200).send({ok:true})})
-   ///protected admi9n ropute
-    router.get('/admin-auth',requireSignIn,isAdmin,(req,res)=>{
-        res.status(200).send({ok:true})})
-       
+router.get("/user-auth", requireSignIn, (req, res) => {
+  res.status(200).send({ ok: true });
+});
+///protected admi9n ropute
+router.get("/admin-auth", requireSignIn, isAdmin, (req, res) => {
+  res.status(200).send({ ok: true });
+});
 
+router.put("/profile", requireSignIn, updateProfileController);
 
-export default router
+export default router;
