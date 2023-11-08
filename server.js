@@ -8,17 +8,19 @@ import morgan from "morgan";
 import dbs from "./config/dbs.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
-
+import userRouter from "./routes/userRoutes.js";
 dotenv.config();
 dbs();
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.json({ limit: "30mb" }));
 app.use(morgan("dev"));
 //routes
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
+app.use("/api/v1/user", userRouter);
 
 //rest api
 
